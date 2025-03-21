@@ -1,52 +1,64 @@
-import React from "react"
-import { Button, Cascader, Checkbox, DatePicker, Input, InputNumber, Radio, Select, Slider, Switch, TreeSelect, Upload } from "antd"
-import { UploadOutlined } from '@ant-design/icons'
-import { TLeggoItemInfo } from "./interface"
+import React from "react";
+import {
+  Button,
+  Cascader,
+  Checkbox,
+  DatePicker,
+  Input,
+  InputNumber,
+  Radio,
+  Select,
+  Slider,
+  Switch,
+  TreeSelect,
+  Upload,
+} from "antd";
+import { UploadOutlined } from "@ant-design/icons";
+import { TLeggoItemInfo } from "./interface";
 
-
-const antdItemStore:{[key: string]: TLeggoItemInfo}= {
+const antdItemStore: { [key: string]: TLeggoItemInfo } = {
   input: {
-    type: 'input',
+    type: "input",
     StandardInput: Input,
     configs: {
       itemProps: {
-        name: 'input',
-        label: '标题',
+        name: "input",
+        label: "标题",
         initialValue: undefined,
-        rules: [{ required: true, message: '请输入标题！' }],
+        rules: [{ required: true, message: "请输入标题！" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
         disabled: false,
-        placeholder: '请输入',
+        placeholder: "请输入",
         allowClear: false,
         maxLength: undefined,
         bordered: true,
-        id: '',
+        id: "",
       },
       extra: {
         wordsLimit: null,
-      }
+      },
     },
   },
   inputTexArea: {
-    type: 'inputTexArea',
+    type: "inputTexArea",
     StandardInput: Input.TextArea,
     configs: {
       itemProps: {
-        name: 'inputTexArea',
-        label: '多行文本',
+        name: "inputTexArea",
+        label: "多行文本",
         initialValue: undefined,
-        rules: [{ required: true, message: '请输入文本！' }],
+        rules: [{ required: true, message: "请输入文本！" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
         disabled: false,
-        placeholder: '请输入',
+        placeholder: "请输入",
         rows: 4,
         autoSize: false,
         allowClear: false,
@@ -56,49 +68,49 @@ const antdItemStore:{[key: string]: TLeggoItemInfo}= {
       },
       extra: {
         wordsLimit: null,
-      }
+      },
     },
   },
   inputPassword: {
-    type: 'inputPassword',
+    type: "inputPassword",
     StandardInput: Input.Password,
     configs: {
       itemProps: {
-        name: 'inputPassword',
-        label: '密码',
+        name: "inputPassword",
+        label: "密码",
         initialValue: undefined,
-        rules: [{ required: true, message: '请输入密码！' }],
+        rules: [{ required: true, message: "请输入密码！" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
         disabled: false,
-        placeholder: '请输入',
+        placeholder: "请输入",
         visibilityToggle: true,
       },
     },
   },
   inputNumber: {
-    type: 'inputNumber',
+    type: "inputNumber",
     StandardInput: InputNumber,
     configs: {
       itemProps: {
-        name: 'inputNumber',
-        label: '数字',
+        name: "inputNumber",
+        label: "数字",
         initialValue: undefined,
-        rules: [{ required: true, message: '请输入数字！' }],
+        rules: [{ required: true, message: "请输入数字！" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
         disabled: false,
-        placeholder: '请输入',
+        placeholder: "请输入",
         max: undefined,
         min: undefined,
         bordered: true,
-        step: '1',
+        step: "1",
         controls: true,
         decimalSeparator: undefined,
         precision: 0,
@@ -109,29 +121,32 @@ const antdItemStore:{[key: string]: TLeggoItemInfo}= {
     },
   },
   select: {
-    type: 'select',
+    type: "select",
     StandardInput: Select,
     configs: {
       itemProps: {
-        name: 'select',
-        label: '选项',
+        name: "select",
+        label: "选项",
         initialValue: undefined,
-        rules: [{ required: true, message: '请选择！' }],
+        rules: [{ required: true, message: "请选择！" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
         disabled: false,
-        placeholder: '请选择',
-        options: [{ label: 'A', value: 1 }, { label: 'B', value: 2 }],
+        placeholder: "请选择",
+        options: [
+          { label: "A", value: 1 },
+          { label: "B", value: 2 },
+        ],
         bordered: true,
         allowClear: false,
         showArrow: true,
         showSearch: false,
         autoClearSearchValue: true,
         mode: undefined,
-        optionFilterProp: 'value',
+        optionFilterProp: "value",
         filterOption: true,
         defaultActiveFirstOption: true,
         dropdownMatchSelectWidth: true,
@@ -145,104 +160,106 @@ const antdItemStore:{[key: string]: TLeggoItemInfo}= {
     },
   },
   cascader: {
-    type: 'cascader',
+    type: "cascader",
     StandardInput: Cascader,
     configs: {
       itemProps: {
-        name: 'cascader',
-        label: '联级选择',
+        name: "cascader",
+        label: "联级选择",
         initialValue: [],
-        rules: [{ required: true, message: '请选择！' }],
+        rules: [{ required: true, message: "请选择！" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
         disabled: false,
-        placeholder: '请选择',
+        placeholder: "请选择",
         options: [
           {
-            label: 'A',
+            label: "A",
             value: 1,
             children: [
               {
-                value: 'nanjing',
-                label: 'Nanjing',
+                value: "nanjing",
+                label: "Nanjing",
                 children: [
                   {
-                    label: 'Zhong Hua Men',
-                    value: 'zhonghuamen',
+                    label: "Zhong Hua Men",
+                    value: "zhonghuamen",
                   },
                 ],
               },
             ],
           },
           {
-            label: 'B',
+            label: "B",
             value: 2,
             children: [
               {
-                label: 'West Lake',
-                value: 'xihu',
+                label: "West Lake",
+                value: "xihu",
               },
             ],
-          }],
+          },
+        ],
         allowClear: true,
         showSearch: false,
         bordered: true,
-        notFoundContent: '无数据',
-        popupPlacement: 'bottomLeft',
-        className: '',
-        popupClassName: '',
+        notFoundContent: "无数据",
+        popupPlacement: "bottomLeft",
+        className: "",
+        popupClassName: "",
         changeOnSelect: false,
-        expandTrigger: 'click',
+        expandTrigger: "click",
         autoFocus: false,
       },
     },
   },
   treeSelect: {
-    type: 'treeSelect',
+    type: "treeSelect",
     StandardInput: TreeSelect,
     configs: {
       itemProps: {
-        name: 'treeSelect',
-        label: '树选择',
+        name: "treeSelect",
+        label: "树选择",
         initialValue: undefined,
-        rules: [{ required: true, message: '请选择！' }],
+        rules: [{ required: true, message: "请选择！" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
         disabled: false,
-        placeholder: '请选择',
+        placeholder: "请选择",
         treeData: [
           {
-            title: 'A',
+            title: "A",
             value: 1,
             children: [
               {
-                title: 'Nanjing',
-                value: 'nanjing',
+                title: "Nanjing",
+                value: "nanjing",
                 children: [
                   {
-                    title: 'Zhong Hua Men',
-                    value: 'zhonghuamen',
+                    title: "Zhong Hua Men",
+                    value: "zhonghuamen",
                   },
                 ],
               },
             ],
           },
           {
-            title: 'B',
+            title: "B",
             value: 2,
             children: [
               {
-                title: 'West Lake',
-                value: 'xihu',
+                title: "West Lake",
+                value: "xihu",
               },
             ],
-          }],
+          },
+        ],
         allowClear: false,
         autoClearSearchValue: true,
         showArrow: true,
@@ -252,7 +269,7 @@ const antdItemStore:{[key: string]: TLeggoItemInfo}= {
         treeCheckable: false,
         treeCheckStrictly: false,
         treeDefaultExpandAll: false,
-        dropdownClassName: '',
+        dropdownClassName: "",
         dropdownMatchSelectWidth: true,
         listHeight: 256,
         virtual: true,
@@ -260,36 +277,39 @@ const antdItemStore:{[key: string]: TLeggoItemInfo}= {
     },
   },
   checkboxGroup: {
-    type: 'checkboxGroup',
+    type: "checkboxGroup",
     StandardInput: Checkbox.Group,
     configs: {
       itemProps: {
-        name: 'checkboxGroup',
-        label: '多选',
+        name: "checkboxGroup",
+        label: "多选",
         initialValue: [],
-        rules: [{ required: true, message: '请选择！' }],
+        rules: [{ required: true, message: "请选择！" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
         disabled: false,
-        options: [{ label: 'A', value: 1 }, { label: 'B', value: 2 }],
+        options: [
+          { label: "A", value: 1 },
+          { label: "B", value: 2 },
+        ],
       },
     },
   },
   checkbox: {
-    type: 'checkbox',
+    type: "checkbox",
     StandardInput: Checkbox,
     configs: {
       itemProps: {
-        name: 'checkbox',
-        label: '勾选开关',
-        valuePropName: 'checked',
+        name: "checkbox",
+        label: "勾选开关",
+        valuePropName: "checked",
         initialValue: false,
-        rules: [{ required: true, message: '请选择！' }],
+        rules: [{ required: true, message: "请选择！" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
@@ -300,154 +320,163 @@ const antdItemStore:{[key: string]: TLeggoItemInfo}= {
     },
   },
   radioGroup: {
-    type: 'radioGroup',
+    type: "radioGroup",
     StandardInput: Radio.Group,
     configs: {
       itemProps: {
-        name: 'radioGroup',
-        label: '单选',
+        name: "radioGroup",
+        label: "单选",
         initialValue: undefined,
-        rules: [{ required: true, message: '请选择！' }],
+        rules: [{ required: true, message: "请选择！" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
         disabled: false,
-        options: [{ label: 'A', value: 1 }, { label: 'B', value: 2 }],
+        options: [
+          { label: "A", value: 1 },
+          { label: "B", value: 2 },
+        ],
         autoFocus: false,
-        optionType: 'default',
-        buttonStyle: 'outline',
+        optionType: "default",
+        buttonStyle: "outline",
       },
     },
   },
   datePicker: {
-    type: 'datePicker',
+    type: "datePicker",
     StandardInput: DatePicker,
     configs: {
       itemProps: {
-        name: 'datePicker',
-        label: '日期',
-        rules: [{ required: true, message: '请选择日期！' }],
+        name: "datePicker",
+        label: "日期",
+        rules: [{ required: true, message: "请选择日期！" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
         disabled: false,
-        placeholder: '请选择',
-        picker: 'date',
+        placeholder: "请选择",
+        picker: "date",
         allowClear: true,
         bordered: true,
         showNow: true,
         showTime: false,
         showToday: true,
-        className: '',
-        dropdownClassName: '',
+        className: "",
+        dropdownClassName: "",
         inputReadOnly: false,
         autoFocus: false,
       },
     },
   },
   rangePicker: {
-    type: 'rangePicker',
+    type: "rangePicker",
     StandardInput: DatePicker.RangePicker,
     configs: {
       itemProps: {
-        name: 'rangePicker',
-        label: '日期',
-        rules: [{ required: true, message: '请选择日期！' }],
+        name: "rangePicker",
+        label: "日期",
+        rules: [{ required: true, message: "请选择日期！" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
         disabled: false,
-        picker: 'day',
-        format: ''
+        picker: "day",
+        format: "",
       },
     },
   },
   upload: {
-    type: 'upload',
+    type: "upload",
     StandardInput: Upload,
     configs: {
       itemProps: {
-        name: 'upload',
-        label: '上传',
-        valuePropName: 'fileList',
-        rules: [{ required: true, message: '请上传！' }],
+        name: "upload",
+        label: "上传",
+        valuePropName: "fileList",
+        rules: [{ required: true, message: "请上传！" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
         disabled: false,
-        method: 'post',
+        method: "post",
         action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
-        accept: '',
+        accept: "",
         listType: "picture",
         showUploadList: true,
         directory: false,
         maxCount: undefined,
         multiple: false,
-        name: 'file',
+        name: "file",
         withCredentials: false,
         openFileDialogOnClick: true,
       },
-      extra:{
-        childrenNode: () => <Button icon={<UploadOutlined />}>Click to Upload</Button>
-      }
+      extra: {
+        childrenNode: () => (
+          <Button icon={<UploadOutlined />}>Click to Upload</Button>
+        ),
+      },
     },
   },
   switch: {
-    type: 'switch',
+    type: "switch",
     StandardInput: Switch,
     configs: {
       itemProps: {
-        name: 'switch',
-        label: '开关',
-        valuePropName: 'checked',
+        name: "switch",
+        label: "开关",
+        valuePropName: "checked",
         initialValue: false,
-        rules: [{ required: false, message: '' }],
+        rules: [{ required: false, message: "" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
         disabled: false,
-        className: '',
+        className: "",
         autoFocus: false,
       },
     },
   },
   empty: {
-    type: 'empty',
-    StandardInput: () => <div>占位表单仅作为表单结构的一部分，表单实际渲染前将被中间件识别并替换！</div>,
+    type: "empty",
+    StandardInput: () => (
+      <div>
+        占位表单仅作为表单结构的一部分，表单实际渲染前将被中间件识别并替换！
+      </div>
+    ),
     configs: {
       itemProps: {
-        name: 'empty',
-        label: '占位表单',
+        name: "empty",
+        label: "占位表单",
         initialValue: undefined,
-        rules: [{ required: true, message: '' }],
+        rules: [{ required: true, message: "" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
         disabled: false,
       },
       extra: {
-        mark: '',
-      }
+        mark: "",
+      },
     },
   },
   submit: {
-    type: 'submit',
+    type: "submit",
     StandardInput: Button,
     configs: {
       itemProps: {
-        label: '',
+        label: "",
         wrapperCol: { offset: 8 },
         noStyle: false,
         hidden: false,
@@ -462,21 +491,21 @@ const antdItemStore:{[key: string]: TLeggoItemInfo}= {
         shape: undefined,
       },
       extra: {
-        childrenNode: 'Submit'
-      }
+        childrenNode: "Submit",
+      },
     },
   },
   slider: {
-    type: 'slider',
+    type: "slider",
     StandardInput: Slider,
     configs: {
       itemProps: {
-        name: 'slider',
-        label: '滑动输入',
+        name: "slider",
+        label: "滑动输入",
         initialValue: undefined,
-        rules: [{ required: true, message: '请输入！' }],
+        rules: [{ required: true, message: "请输入！" }],
         noStyle: false,
-        trigger: 'onChange',
+        trigger: "onChange",
         hidden: false,
       },
       inputProps: {
@@ -493,11 +522,10 @@ const antdItemStore:{[key: string]: TLeggoItemInfo}= {
         vertical: false,
       },
     },
-  }
-}
+  },
+};
 
-
-export const leggoItemStore= {
-  total: {...antdItemStore},
+export const leggoItemStore = {
+  total: { ...antdItemStore },
   antd: antdItemStore,
-}
+};
